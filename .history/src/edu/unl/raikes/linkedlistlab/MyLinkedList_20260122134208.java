@@ -275,7 +275,6 @@ public class MyLinkedList<E> implements List<E> {
 
     @Override
     public E remove(int index) {
-        E returnVal = get(index);
         if (index == 0) {
             head = head.next;
         } else {
@@ -284,8 +283,8 @@ public class MyLinkedList<E> implements List<E> {
             // Skip the target node by linking 'before' to 'before.next.next'
             nodeBefore.next = nodeBefore.next.next;
         }
-        size --;
-        return returnVal;
+
+        return get(index);
 
     }
 

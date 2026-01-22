@@ -88,47 +88,6 @@ public class MyLinkedList<E> implements List<E> {
     @Override
     public void add(int index, E element) {
         // TODO: fill this in
-
-        // First, validate index
-        if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException();
-        }
-
-        // Case 1: Inserting at the beginning (index 0)
-        if (index == 0) {
-            // Create new node pointing to current head
-            Node newNode = new Node(element, head);
-            // Update head to point to new node
-            this.head = newNode;
-            size++;
-        }
-        // Case 2: Inserting at the end (index == size)
-        else if (index == size) {
-            // Your current logic works here
-            if (head == null) {
-                head = new Node(element);
-            } else {
-                Node node = head;
-                // loop until the last node
-                for (; node.next != null; node = node.next) {
-                }
-                node.next = new Node(element);
-            }
-            size++;
-        }
-        // Case 3: Inserting in the middle
-        else {
-            // Find the node at position (index - 1)
-            Node indexMinusOneNode = this.getNode(index - 1);
-            // Create new node with element
-            Node newNodeAgain = new Node(element);
-            // Link it properly: new node's next = node at (index-1)'s next
-            newNodeAgain.next = indexMinusOneNode.next;
-            // node at (index-1)'s next = new node
-            indexMinusOneNode.next = newNodeAgain;
-            size++;
-        }
-
     }
 
     @Override
@@ -191,16 +150,21 @@ public class MyLinkedList<E> implements List<E> {
 
     @Override
     public int indexOf(Object target) {
-        Node node = head;
+        // TODO: fill this in
         int index = 0;
-        for (int i = 0; i < size; i++) {
-            if (equals(target, node.cargo)) {
+        for (int i = 0; i < this.size(); i++) {
+           
+            if (this.get(0).equals(target)) {
                 return index;
             }
-            node = node.next;
+
+            if (index == this.size - 1) {
+                return -1;
+            }
             index++;
         }
         return -1;
+
     }
 
     /**
@@ -253,40 +217,14 @@ public class MyLinkedList<E> implements List<E> {
 
     @Override
     public boolean remove(Object obj) {
-        int index = indexOf(obj);
-
-        if (index == -1) {
-            return false;
-        }
-
-        // Special case: Removing the first node
-        if (index == 0) {
-            head = head.next;
-        } else {
-            // General case: Get the node BEFORE the one we want to remove
-            Node nodeBefore = getNode(index - 1);
-            // Skip the target node by linking 'before' to 'before.next.next'
-            nodeBefore.next = nodeBefore.next.next;
-        }
-
-        size--;
-        return true;
+        // TODO: fill this in
+        return false;
     }
 
     @Override
     public E remove(int index) {
-        E returnVal = get(index);
-        if (index == 0) {
-            head = head.next;
-        } else {
-            // General case: Get the node BEFORE the one we want to remove
-            Node nodeBefore = getNode(index - 1);
-            // Skip the target node by linking 'before' to 'before.next.next'
-            nodeBefore.next = nodeBefore.next.next;
-        }
-        size --;
-        return returnVal;
-
+        // TODO: fill this in
+        return null;
     }
 
     @Override

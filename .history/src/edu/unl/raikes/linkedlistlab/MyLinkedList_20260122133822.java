@@ -253,40 +253,23 @@ public class MyLinkedList<E> implements List<E> {
 
     @Override
     public boolean remove(Object obj) {
-        int index = indexOf(obj);
-
-        if (index == -1) {
+        // TODO: fill this in
+        int indexOfNodeToRemove = indexOf(obj);
+       
+        if (indexOfNodeToRemove == -1) {
             return false;
         }
+        Node nodeBeforeRemovingNode = getNode(indexOfNodeToRemove - 1);
+        Node nodeAfterRemovingNode = getNode(indexOfNodeToRemove + 1);
+        nodeBeforeRemovingNode.next = nodeAfterRemovingNode;
 
-        // Special case: Removing the first node
-        if (index == 0) {
-            head = head.next;
-        } else {
-            // General case: Get the node BEFORE the one we want to remove
-            Node nodeBefore = getNode(index - 1);
-            // Skip the target node by linking 'before' to 'before.next.next'
-            nodeBefore.next = nodeBefore.next.next;
-        }
-
-        size--;
         return true;
     }
 
     @Override
     public E remove(int index) {
-        E returnVal = get(index);
-        if (index == 0) {
-            head = head.next;
-        } else {
-            // General case: Get the node BEFORE the one we want to remove
-            Node nodeBefore = getNode(index - 1);
-            // Skip the target node by linking 'before' to 'before.next.next'
-            nodeBefore.next = nodeBefore.next.next;
-        }
-        size --;
-        return returnVal;
-
+        // TODO: fill this in
+        return null;
     }
 
     @Override

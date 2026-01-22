@@ -191,16 +191,21 @@ public class MyLinkedList<E> implements List<E> {
 
     @Override
     public int indexOf(Object target) {
-        Node node = head;
+
         int index = 0;
-        for (int i = 0; i < size; i++) {
-            if (equals(target, node.cargo)) {
+        for (int i = 0; i < this.size(); i++) {
+
+            if (this.get(index).equals(target)) {
                 return index;
             }
-            node = node.next;
+
+            if (index == this.size - 1) {
+                return -1;
+            }
             index++;
         }
         return -1;
+
     }
 
     /**
@@ -253,40 +258,14 @@ public class MyLinkedList<E> implements List<E> {
 
     @Override
     public boolean remove(Object obj) {
-        int index = indexOf(obj);
-
-        if (index == -1) {
-            return false;
-        }
-
-        // Special case: Removing the first node
-        if (index == 0) {
-            head = head.next;
-        } else {
-            // General case: Get the node BEFORE the one we want to remove
-            Node nodeBefore = getNode(index - 1);
-            // Skip the target node by linking 'before' to 'before.next.next'
-            nodeBefore.next = nodeBefore.next.next;
-        }
-
-        size--;
-        return true;
+        // TODO: fill this in
+        return false;
     }
 
     @Override
     public E remove(int index) {
-        E returnVal = get(index);
-        if (index == 0) {
-            head = head.next;
-        } else {
-            // General case: Get the node BEFORE the one we want to remove
-            Node nodeBefore = getNode(index - 1);
-            // Skip the target node by linking 'before' to 'before.next.next'
-            nodeBefore.next = nodeBefore.next.next;
-        }
-        size --;
-        return returnVal;
-
+        // TODO: fill this in
+        return null;
     }
 
     @Override
